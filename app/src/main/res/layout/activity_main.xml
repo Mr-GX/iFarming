@@ -1,22 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="200dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:background="@drawable/corner_bg">
+    <RadioGroup
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:text="测试文本" />
-    </RelativeLayout>
+        <RadioButton
+            android:id="@+id/radio_home"
+            style="@style/TabBarButton"
+            android:checked="true"
+            android:drawableTop="@drawable/selector_home"
+            android:text="@string/home" />
 
-</LinearLayout>
+        <RadioButton
+            android:id="@+id/radio_basic_collect"
+            style="@style/TabBarButton"
+            android:drawableTop="@drawable/selector_basic"
+            android:text="@string/basic" />
+
+        <RadioButton
+            android:id="@+id/radio_sars_collect"
+            style="@style/TabBarButton"
+            android:drawableTop="@drawable/selector_sars"
+            android:text="@string/sars" />
+
+        <RadioButton
+            android:id="@+id/radio_user"
+            style="@style/TabBarButton"
+            android:drawableTop="@drawable/selector_user"
+            android:text="@string/user" />
+
+    </RadioGroup>
+
+    <View
+        android:id="@+id/divide"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_above="@+id/tab_bar"
+        android:background="#c8c7cc" />
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/divide" />
+</RelativeLayout>
