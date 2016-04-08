@@ -20,7 +20,7 @@
             android:name="AA_DB_VERSION"
             android:value="1" />
         <meta-data
-            android:name="com.insight4hr.afterwork.utils.GlideConfig"
+            android:name="com.android.ifarm.ifarming.widget.GlideConfig"
             android:value="GlideModule" />
 
         <activity
