@@ -8,4 +8,13 @@
 （4）疫情信息表（养殖场编号、养殖类型编号、个体编号（二维条码）、发病时间、图片文件）
 （5）用户表（用户编号、用户名）
 # iFarming
-
+![image](https://github.com/Mr-GX/iFarming/blob/master/images/%E9%A6%96%E9%A1%B5.jpg)
+![image](https://github.com/Mr-GX/iFarming/blob/master/images/%E7%99%BB%E5%BD%95%E9%A1%B5.jpg)
+![image](https://github.com/Mr-GX/iFarming/blob/master/images/%E7%96%AB%E6%83%85%E9%87%87%E9%9B%86%E9%A1%B5.jpg)
+![image](https://github.com/Mr-GX/iFarming/blob/master/images/%E7%96%AB%E6%83%85%E4%BF%A1%E6%81%AF%E9%A1%B5.jpg)
+![image](https://github.com/Mr-GX/iFarming/blob/master/images/%E6%B3%A8%E5%86%8C%E9%A1%B5.jpg)
+![image](https://github.com/Mr-GX/iFarming/blob/master/images/%E6%88%91%E7%9A%84%E9%A1%B5.jpg)
+![image](https://github.com/Mr-GX/iFarming/blob/master/images/%E5%9F%BA%E7%A1%80%E4%BF%A1%E6%81%AF%E9%87%87%E9%9B%86%E9%A1%B5.jpg)
+![image](https://github.com/Mr-GX/iFarming/blob/master/images/%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF%E9%A1%B5.jpg)
+![image](https://github.com/Mr-GX/iFarming/blob/master/images/%E5%8A%A8%E7%89%A9%E4%BF%A1%E6%81%AF%E9%A1%B5.jpg)
+![image](https://github.com/Mr-GX/iFarming/blob/master/images/%E5%8A%A8%E7%89%A9%E4%BF%A1%E6%81%AF%E9%87%87%E9%9B%86%E9%A1%B5.jpg)
