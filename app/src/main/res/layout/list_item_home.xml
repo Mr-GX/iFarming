@@ -1,15 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:layout_height="120dp"
+    android:paddingLeft="18dp">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Title"
-        android:textColor="@color/brown"
-        android:textSize="30sp" />
+    <com.android.ifarm.ifarming.widget.CircleImageView
+        android:id="@+id/farm_avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/logo_main"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/farm_code"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="No.0001"
+            android:gravity="bottom"
+            android:textColor="@color/brown"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/farm_name"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="xxx养殖场"
+            android:gravity="center_vertical"
+            android:textColor="@color/brown"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/farm_address"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="xx省xx市xx区"
+            android:gravity="top"
+            android:textColor="@color/brown"
+            android:textSize="20sp" />
+    </LinearLayout>
 </LinearLayout>

@@ -78,7 +78,7 @@ public class BasicFragment extends BaseFragment {
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {
-                BasicPlaceFragment fragment = new BasicPlaceFragment();
+                BasicFarmFragment fragment = new BasicFarmFragment();
                 return fragment;
             } else {
                 BasicAnimFragment fragment = new BasicAnimFragment();

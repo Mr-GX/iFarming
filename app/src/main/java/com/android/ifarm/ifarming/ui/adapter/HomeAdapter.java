@@ -1,5 +1,6 @@
 package com.android.ifarm.ifarming.ui.adapter;
 
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,11 +8,15 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.android.ifarm.ifarming.R;
+import com.android.ifarm.ifarming.ui.db.DicFarm;
+import com.android.ifarm.ifarming.widget.CircleImageView;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeAdapter extends BaseAdapter {
-    private ArrayList<String> mDatas;
+    private List<DicFarm> mDatas;
 
     public HomeAdapter() {
         mDatas = new ArrayList<>();
@@ -22,31 +27,29 @@ public class HomeAdapter extends BaseAdapter {
         return mDatas.size() > 0 ? mDatas.size() : 0;
     }
 
-    public void clearData() {
+    public void clear() {
         mDatas.clear();
         notifyDataSetChanged();
     }
 
-    public void addActivityInfos(ArrayList<String> datas, boolean clear) {
+    public void add(List<DicFarm> datas, boolean clear) {
         if (clear) {
             mDatas.clear();
         }
-
         if (datas != null) {
             mDatas.addAll(datas);
         }
-
         notifyDataSetChanged();
     }
 
     @Override
-    public String getItem(int i) {
+    public DicFarm getItem(int i) {
         return mDatas.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
     @Override
@@ -57,17 +60,26 @@ public class HomeAdapter extends BaseAdapter {
                     parent, false);
             holder = new ViewHolder();
             convertView.setTag(holder);
-            holder.title = (TextView) convertView.findViewById(R.id.title);
+            holder.avatar = (CircleImageView) convertView.findViewById(R.id.farm_avatar);
+            holder.code = (TextView) convertView.findViewById(R.id.farm_code);
+            holder.name = (TextView) convertView.findViewById(R.id.farm_name);
+            holder.address = (TextView) convertView.findViewById(R.id.farm_address);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        String data = mDatas.get(position);
-        holder.title.setText(data);
+        DicFarm data = mDatas.get(position);
+        if (!((Activity)holder.avatar.getContext()).isFinishing()){
+            Glide.with(holder.avatar.getContext()).load(data.dicAvatar).error(R.mipmap.logo_main).into(holder.avatar);
+        }
+        holder.code.setText(String.format("No.%s",data.dicCode));
+        holder.name.setText(data.dicName);
+        holder.address.setText(data.dicAddress);
         return convertView;
     }
 
 
     static class ViewHolder {
-        TextView title;
+        CircleImageView avatar;
+        TextView code,name,address;
     }
 }

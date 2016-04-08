@@ -30,16 +30,22 @@
                     android:text="所属养殖场"
                     android:textColor="@color/brown" />
 
-                <TextView
-                    android:id="@+id/from"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:background="@drawable/corner_"
-                    android:drawablePadding="10dp"
-                    android:drawableRight="@mipmap/triangle"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:textColor="@color/brown" />
+                    android:background="@drawable/corner_">
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/from"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="10dp"
+                        android:drawableRight="@mipmap/triangle"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:spinnerMode="dialog"
+                        android:textColor="@color/brown"/>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -57,18 +63,22 @@
                     android:text="养殖类型"
                     android:textColor="@color/brown" />
 
-                <android.support.v7.widget.AppCompatSpinner
-                    android:id="@+id/type"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:background="@drawable/corner_"
-                    android:drawablePadding="10dp"
-                    android:drawableRight="@mipmap/triangle"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:textColor="@color/brown">
+                    android:background="@drawable/corner_">
 
-                </android.support.v7.widget.AppCompatSpinner>
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/type"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="10dp"
+                        android:drawableRight="@mipmap/triangle"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:spinnerMode="dialog"
+                        android:textColor="@color/brown"/>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -86,16 +96,22 @@
                     android:text="养殖品种"
                     android:textColor="@color/brown" />
 
-                <TextView
-                    android:id="@+id/pinzhong"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:background="@drawable/corner_"
-                    android:drawablePadding="10dp"
-                    android:drawableRight="@mipmap/triangle"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="5dp"
-                    android:textColor="@color/brown" />
+                    android:background="@drawable/corner_">
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/pinzhong"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="10dp"
+                        android:drawableRight="@mipmap/triangle"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:spinnerMode="dialog"
+                        android:textColor="@color/brown"/>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout

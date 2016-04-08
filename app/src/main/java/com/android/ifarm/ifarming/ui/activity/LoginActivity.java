@@ -12,7 +12,6 @@ import com.android.ifarm.ifarming.R;
 import com.android.ifarm.ifarming.app.AppConfig;
 import com.android.ifarm.ifarming.ui.db.DicUser;
 import com.android.ifarm.ifarming.util.Utils;
-import com.jaeger.library.StatusBarUtil;
 
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class LoginActivity extends BaseActivity {
             return;
         }
         setContentView(R.layout.activity_login);
-        StatusBarUtil.setTranslucent(this);
+//        StatusBarUtil.setTranslucent(this);
         bindView(this);
     }
 

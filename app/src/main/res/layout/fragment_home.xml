@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
     <RelativeLayout style="@style/NavigationBar">
@@ -20,9 +21,9 @@
             style="@style/NavigationTitle"
             android:layout_width="250dp"
             android:layout_height="35dp"
-            android:layout_toRightOf="@+id/btn_search"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/btn_search"
             android:background="@drawable/corner_search_bg"
             android:gravity="center_vertical"
             android:hint="输入养殖场名称搜索"
@@ -31,11 +32,16 @@
 
     <TextView style="@style/Divider" />
 
-    <TextView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/home"
-        android:textColor="@color/brown"
-        android:textSize="30sp" />
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:listSelector="@android:color/transparent"
+            android:divider="@drawable/list_divider"
+            android:dividerHeight="1px"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

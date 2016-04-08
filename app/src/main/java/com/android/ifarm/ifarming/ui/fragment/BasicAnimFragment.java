@@ -10,8 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.ifarm.ifarming.R;
 
@@ -39,11 +37,11 @@ public class BasicAnimFragment extends BaseFragment {
     }
 
     @Bind(R.id.from)
-    TextView mFrom;
+    AppCompatSpinner mFrom;
     @Bind(R.id.type)
     AppCompatSpinner mType;
     @Bind(R.id.pinzhong)
-    TextView mPz;
+    AppCompatSpinner mPz;
     @Bind(R.id.count)
     EditText mCount;
 
@@ -59,20 +57,33 @@ public class BasicAnimFragment extends BaseFragment {
         for (int i=0;i<50;i++){
             mData.add("item"+i);
         }
-        final ArrayAdapter adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, mData);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mType.setAdapter(adapter);
-        mType.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
+        final ArrayAdapter adapterFrom = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, mData);
+        adapterFrom.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mFrom.setAdapter(adapterFrom);
+        mFrom.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                Toast.makeText(getActivity(),".."+adapter.getItem(arg2),Toast.LENGTH_SHORT).show();
             }
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         });
-    }
-
-    static class ViewHolder {
-        TextView title;
+        final ArrayAdapter adapterType = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, mData);
+        adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mType.setAdapter(adapterType);
+        mType.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+            }
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+        final ArrayAdapter adapterPz = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, mData);
+        adapterPz.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mPz.setAdapter(adapterPz);
+        mPz.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+            }
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
     }
 
     @Override
