@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@mipmap/write" android:state_checked="true" />
-    <item android:drawable="@mipmap/write" android:state_pressed="true" />
-    <item android:drawable="@mipmap/write" />
+    <item android:drawable="@mipmap/write_down" android:state_checked="true" />
+    <item android:drawable="@mipmap/write_down" android:state_pressed="true" />
+    <item android:drawable="@mipmap/write_up" />
 </selector>

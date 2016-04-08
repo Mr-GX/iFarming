@@ -25,7 +25,7 @@
                 android:layout_height="120dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:src="@mipmap/logo" />
+                android:src="@mipmap/logo_main" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -46,10 +46,10 @@
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_marginLeft="10dp"
-                    android:src="@mipmap/mine" />
+                    android:src="@mipmap/username" />
 
                 <EditText
                     android:id="@+id/edit_name"
@@ -57,6 +57,7 @@
                     android:layout_height="40dp"
                     android:background="@android:color/transparent"
                     android:hint="username"
+                    android:inputType="phone"
                     android:paddingLeft="5dp"
                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
@@ -73,10 +74,10 @@
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_marginLeft="10dp"
-                    android:src="@mipmap/mine" />
+                    android:src="@mipmap/privaty" />
 
                 <EditText
                     android:id="@+id/edit_password"
@@ -101,7 +102,7 @@
                 android:background="@drawable/corner_bg"
                 android:gravity="center"
                 android:minHeight="40dp"
-                android:text="sign in"
+                android:text="Sign in"
                 android:textColor="@android:color/white" />
 
             <LinearLayout
@@ -146,7 +147,7 @@
                 android:background="@drawable/corner_bg"
                 android:gravity="center"
                 android:minHeight="40dp"
-                android:text="register"
+                android:text="Register"
                 android:textColor="@android:color/white" />
         </LinearLayout>
     </ScrollView>

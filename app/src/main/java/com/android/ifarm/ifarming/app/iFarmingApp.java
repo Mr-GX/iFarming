@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.Configuration;
+import com.android.ifarm.ifarming.ui.db.DicUser;
 import com.bumptech.glide.Glide;
 
 public class iFarmingApp extends Application {
@@ -21,10 +22,10 @@ public class iFarmingApp extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
+        new CrashHelper().init();
         Configuration.Builder configurationBuilder = new Configuration.Builder(getApplicationContext());
         configurationBuilder.addModelClasses(
-//                DicSyncType.class,
-//                DicGroupType.class
+                DicUser.class
         );
         ActiveAndroid.initialize(configurationBuilder.create());
     }

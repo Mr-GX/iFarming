@@ -3,7 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="app_background">#fbfbfb</color>
     <color name="divider">#c8c7cc</color>
-    <color name="brown">#A67D3D</color>
+    <color name="brown">#7e511e</color>
+    <color name="brown_">#efa326</color>
     <color name="text">#3f3f3f</color>
 </resources>

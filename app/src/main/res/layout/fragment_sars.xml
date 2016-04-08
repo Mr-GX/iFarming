@@ -3,22 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <RelativeLayout style="@style/NavigationBar">
 
-        <ImageView
-            android:id="@+id/btn_back"
-            style="@style/NavigationLeftButton" />
+    <RelativeLayout style="@style/NavigationBar">
 
         <TextView
             style="@style/NavigationTitle"
             android:text="@string/sars" />
     </RelativeLayout>
 
+    <TextView style="@style/Divider" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="@string/sars"
-        android:textSize="30sp"
-        android:textColor="@color/brown"/>
+        android:textColor="@color/brown"
+        android:textSize="30sp" />
 </LinearLayout>

@@ -6,13 +6,21 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.EditText;
 
+import com.activeandroid.query.Select;
 import com.android.ifarm.ifarming.R;
+import com.android.ifarm.ifarming.app.AppConfig;
+import com.android.ifarm.ifarming.ui.db.DicUser;
+import com.android.ifarm.ifarming.util.Utils;
+import com.jaeger.library.StatusBarUtil;
 
 import java.io.File;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -25,6 +33,7 @@ public class RegisterActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        StatusBarUtil.setTranslucent(this);
         bindView(this);
     }
 
@@ -56,12 +65,63 @@ public class RegisterActivity extends BaseActivity {
 
     @OnClick(R.id.btn_register)
     public void register() {
-        if (!TextUtils.isEmpty(mName.getText().toString()) && !TextUtils.isEmpty(mEmail.getText().toString()) && !TextUtils.isEmpty(mMobile.getText().toString()) && !TextUtils.isEmpty(mPwd.getText().toString())) {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+        if (TextUtils.isEmpty(mName.getText().toString())) {
+            Snackbar.make(mName, "请输入用户名！", Snackbar.LENGTH_SHORT).setAction("我知道了", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            }).show();
+            return;
         }
+        if (TextUtils.isEmpty(mEmail.getText().toString()) || !Utils.isEmail(mEmail.getText().toString())) {
+            Snackbar.make(mEmail, "邮箱为空或不合法！", Snackbar.LENGTH_SHORT).setAction("我知道了", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            }).show();
+            return;
+        }
+        if (TextUtils.isEmpty(mMobile.getText().toString()) || !Utils.isValidPhoneNumber(mMobile.getText().toString())) {
+            Snackbar.make(mMobile, "手机号码为空或不合法！", Snackbar.LENGTH_SHORT).setAction("我知道了", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            }).show();
+            return;
+        }
+        List<DicUser> users = new Select().from(DicUser.class).where("DicMobile= ?", mMobile.getText().toString()).orderBy("DicUid ASC").execute();
+        if (users.size() > 0) {
+            Snackbar.make(mMobile, "手机号码已经存在！", Snackbar.LENGTH_SHORT).setAction("我知道了", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            }).show();
+            return;
+        }
+        if (TextUtils.isEmpty(mPwd.getText().toString())) {
+            Snackbar.make(mPwd, "密码不能为空！", Snackbar.LENGTH_SHORT).setAction("我知道了", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            }).show();
+            return;
+        }
+        List<DicUser> users1 = new Select().from(DicUser.class).execute();
+        DicUser user = new DicUser(mName.getText().toString(), mEmail.getText().toString(), mMobile.getText().toString(), mPwd.getText().toString(), users1.size() + 1);
+        user.save();
+        AppConfig.setRealName(mName.getText().toString());
+        AppConfig.setEmail(mEmail.getText().toString());
+        AppConfig.setMobile(mMobile.getText().toString());
+        AppConfig.setUserId(users1.size() + 1);
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     private void onCamera() {

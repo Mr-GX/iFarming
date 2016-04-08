@@ -6,14 +6,12 @@
 
     <RelativeLayout style="@style/NavigationBar">
 
-        <ImageView
-            android:id="@+id/btn_back"
-            style="@style/NavigationLeftButton" />
-
         <TextView
             style="@style/NavigationTitle"
             android:text="@string/basic" />
     </RelativeLayout>
+
+    <TextView style="@style/Divider" />
 
     <TextView
         android:layout_width="match_parent"

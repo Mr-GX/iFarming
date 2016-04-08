@@ -11,6 +11,7 @@ import com.android.ifarm.ifarming.ui.fragment.BasicFragment;
 import com.android.ifarm.ifarming.ui.fragment.HomeFragment;
 import com.android.ifarm.ifarming.ui.fragment.SarsFragment;
 import com.android.ifarm.ifarming.ui.fragment.UserFragment;
+import com.jaeger.library.StatusBarUtil;
 
 import butterknife.Bind;
 
@@ -23,6 +24,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        StatusBarUtil.setTranslucent(this);
         bindView(this);
         setCurrentFragmentIndex(0);
         tab.setOnCheckedChangeListener(this);

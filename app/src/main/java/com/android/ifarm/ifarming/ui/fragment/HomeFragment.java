@@ -11,6 +11,7 @@ import com.android.ifarm.ifarming.ui.adapter.HomeAdapter;
 
 public class HomeFragment extends BaseFragment {
 
+    HomeAdapter adapter;
     public static HomeFragment newFragment() {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -34,7 +35,7 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        HomeAdapter adapter = new HomeAdapter();
+        adapter = new HomeAdapter();
         Bundle args = getArguments();
         if (args == null) {
             args = new Bundle();
