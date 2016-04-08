@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.ifarm.ifarming.R;
@@ -12,10 +13,10 @@ import com.android.ifarm.ifarming.R;
 import butterknife.Bind;
 import butterknife.OnClick;
 
-public class SarsFragment extends BaseFragment {
+public class BasicAnimFragment extends BaseFragment {
 
-    public static SarsFragment newFragment() {
-        SarsFragment fragment = new SarsFragment();
+    public static BasicAnimFragment newFragment() {
+        BasicAnimFragment fragment = new BasicAnimFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -25,14 +26,9 @@ public class SarsFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_sars, container, false);
-        bindView(this,view);
+        View view = inflater.inflate(R.layout.fragment_basic_anim, container, false);
+        bindView(this, view);
         return view;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
     }
 
     @Bind(R.id.from)
@@ -41,21 +37,17 @@ public class SarsFragment extends BaseFragment {
     TextView mType;
     @Bind(R.id.pinzhong)
     TextView mPz;
-    @Bind(R.id.num)
-    TextView mNum;
-    @Bind(R.id.time)
-    TextView mTime;
-    @OnClick(R.id.read)
-    void onRead() {
+    @Bind(R.id.count)
+    EditText mCount;
 
-    }
-    @OnClick(R.id.photo)
-    void onPhoto() {
-
-    }
     @OnClick(R.id.save)
     void onSave() {
 
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 
     @Override

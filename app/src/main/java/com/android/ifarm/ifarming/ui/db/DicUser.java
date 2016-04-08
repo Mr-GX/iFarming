@@ -16,16 +16,19 @@ public class DicUser extends Model {
     public String dicPwd;
     @Column(name = "DicUid")
     public long dicUid;
+    @Column(name = "DicCover")
+    public String dicCover;
 
     public DicUser() {
         super();
     }
 
-    public DicUser(String dicName, String dicEmail, String dicMobile, String dicPwd, long dicUid) {
+    public DicUser(String dicName, String dicEmail, String dicMobile, String dicPwd, long dicUid, String dicCover) {
         this.dicName = dicName;
         this.dicEmail = dicEmail;
         this.dicMobile = dicMobile;
         this.dicPwd = dicPwd;
         this.dicUid = dicUid;
+        this.dicCover = dicCover;
     }
 }

@@ -17,6 +17,8 @@ import com.android.ifarm.ifarming.R;
 import com.android.ifarm.ifarming.app.AppConfig;
 import com.android.ifarm.ifarming.ui.db.DicUser;
 import com.android.ifarm.ifarming.util.Utils;
+import com.android.ifarm.ifarming.widget.CircleImageView;
+import com.bumptech.glide.Glide;
 import com.jaeger.library.StatusBarUtil;
 
 import java.io.File;
@@ -54,6 +56,8 @@ public class RegisterActivity extends BaseActivity {
         builder.create().show();
     }
 
+    @Bind(R.id.add_photo)
+    CircleImageView mCover;
     @Bind(R.id.edit_name)
     EditText mName;
     @Bind(R.id.edit_email)
@@ -112,7 +116,7 @@ public class RegisterActivity extends BaseActivity {
             return;
         }
         List<DicUser> users1 = new Select().from(DicUser.class).execute();
-        DicUser user = new DicUser(mName.getText().toString(), mEmail.getText().toString(), mMobile.getText().toString(), mPwd.getText().toString(), users1.size() + 1);
+        DicUser user = new DicUser(mName.getText().toString(), mEmail.getText().toString(), mMobile.getText().toString(), mPwd.getText().toString(), users1.size() + 1, mUri != null ? mUri.toString() : "");
         user.save();
         AppConfig.setRealName(mName.getText().toString());
         AppConfig.setEmail(mEmail.getText().toString());
@@ -156,6 +160,7 @@ public class RegisterActivity extends BaseActivity {
                         File(getExternalCacheDir(), "crop_image_out.jpg"));
             }
             mUri = uri;
+            Glide.with(this).load(mUri).error(R.mipmap.logo_main).into(mCover);
         } else if (requestCode == 1000) {
             onCrop(Uri.fromFile(new File(getExternalCacheDir(), "camera.jpeg")));
         }
