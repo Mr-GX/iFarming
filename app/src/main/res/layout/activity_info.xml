@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout style="@style/NavigationBar">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            style="@style/NavigationLeftButton"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/btn_title"
+            style="@style/NavigationTitle" />
+    </RelativeLayout>
+
+    <TextView style="@style/Divider" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_basic"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="基本信息"
+            android:textColor="@drawable/selector_tabbar_text"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radio_anim"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="动物信息"
+            android:textColor="@drawable/selector_tabbar_text"
+            android:textSize="12sp" />
+        <RadioButton
+            android:id="@+id/radio_sars"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="疫情信息"
+            android:textColor="@drawable/selector_tabbar_text"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.android.ifarm.ifarming.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -8,12 +9,14 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.activeandroid.query.Select;
 import com.android.ifarm.ifarming.R;
+import com.android.ifarm.ifarming.ui.activity.InfoActivity;
 import com.android.ifarm.ifarming.ui.adapter.HomeAdapter;
 import com.android.ifarm.ifarming.ui.db.DicFarm;
 import com.android.ifarm.ifarming.ui.event.FarmEvent;
@@ -25,7 +28,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.OnClick;
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements AdapterView.OnItemClickListener {
 
     HomeAdapter adapter;
 
@@ -48,6 +51,7 @@ public class HomeFragment extends BaseFragment {
 
     private void setView() {
         refreshLayout.setOnRefreshListener(mOnRefreshListener);
+        listView.setOnItemClickListener(this);
         View headerView = LayoutInflater.from(getActivity()).inflate(R.layout.header_no_data,
                 listView, false);
         listView.addHeaderView(headerView, null, false);
@@ -144,4 +148,12 @@ public class HomeFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        position -= ((ListView) parent).getHeaderViewsCount();
+        DicFarm farm = adapter.getItem(position);
+        Intent intent = new Intent(getActivity(), InfoActivity.class);
+        intent.putExtra(InfoActivity.PARAM,farm);
+        startActivity(intent);
+    }
 }
