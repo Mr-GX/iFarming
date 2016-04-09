@@ -5,7 +5,9 @@ import android.content.Context;
 
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.Configuration;
+import com.android.ifarm.ifarming.ui.db.DicAnim;
 import com.android.ifarm.ifarming.ui.db.DicFarm;
+import com.android.ifarm.ifarming.ui.db.DicSars;
 import com.android.ifarm.ifarming.ui.db.DicUser;
 import com.bumptech.glide.Glide;
 
@@ -26,7 +28,7 @@ public class iFarmingApp extends Application {
 //        new CrashHelper().init();
         Configuration.Builder configurationBuilder = new Configuration.Builder(getApplicationContext());
         configurationBuilder.addModelClasses(
-                DicUser.class, DicFarm.class
+                DicUser.class, DicFarm.class, DicAnim.class, DicSars.class
         );
         ActiveAndroid.initialize(configurationBuilder.create());
     }

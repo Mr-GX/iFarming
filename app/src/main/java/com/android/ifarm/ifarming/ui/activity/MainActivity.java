@@ -7,10 +7,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.widget.RadioGroup;
 
 import com.android.ifarm.ifarming.R;
+import com.android.ifarm.ifarming.ui.event.AddFarmEvent;
 import com.android.ifarm.ifarming.ui.fragment.BasicFragment;
 import com.android.ifarm.ifarming.ui.fragment.HomeFragment;
 import com.android.ifarm.ifarming.ui.fragment.SarsFragment;
 import com.android.ifarm.ifarming.ui.fragment.UserFragment;
+
+import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.Bind;
 
@@ -23,6 +26,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        registerEventBus();
 //        StatusBarUtil.setTranslucent(this);
         bindView(this);
         setCurrentFragmentIndex(0);
@@ -41,6 +45,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         } else if (id == R.id.radio_user) {
             index = 3;
         }
+        radioGroup.check(id);
         setCurrentFragmentIndex(index);
     }
 
@@ -97,5 +102,17 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         i.addCategory(Intent.CATEGORY_HOME);
         startActivity(i);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unRegisterEventBus();
+    }
+
+    @Subscribe
+    public void onEvent(AddFarmEvent event) {
+        super.onEvent(event);
+        onCheckedChanged(tab,R.id.radio_basic_collect);
     }
 }

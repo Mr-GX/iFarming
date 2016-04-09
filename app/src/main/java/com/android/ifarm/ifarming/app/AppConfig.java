@@ -27,6 +27,14 @@ public class AppConfig {
         preferences.edit().putString("email", email).apply();
     }
 
+    public static String getAvatar() {
+        return preferences.getString("avatar", null);
+    }
+
+    public static void setAvata(String avatar) {
+        preferences.edit().putString("avatar", avatar).apply();
+    }
+
     public static synchronized String getMobile() {
         return preferences.getString("mobile", null);
     }

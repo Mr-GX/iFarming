@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
 import com.android.ifarm.ifarming.R;
+import com.android.ifarm.ifarming.ui.event.AddFarmEvent;
+
+import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.Bind;
 
@@ -66,6 +69,7 @@ public class BasicFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        registerEventBus();
         Bundle args = getArguments();
     }
 
@@ -90,5 +94,17 @@ public class BasicFragment extends BaseFragment {
         public int getCount() {
             return 2;
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unRegisterEventBus();
+    }
+
+    @Subscribe
+    public void onEvent(AddFarmEvent event) {
+        super.onEvent(event);
+        mViewPager.setCurrentItem(0);
     }
 }

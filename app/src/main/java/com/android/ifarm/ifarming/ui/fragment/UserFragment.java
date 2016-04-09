@@ -1,5 +1,6 @@
 package com.android.ifarm.ifarming.ui.fragment;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.android.ifarm.ifarming.R;
 import com.android.ifarm.ifarming.app.AppConfig;
+import com.android.ifarm.ifarming.ui.activity.EditActivity;
 import com.android.ifarm.ifarming.ui.activity.LoginActivity;
 import com.android.ifarm.ifarming.ui.adapter.HomeAdapter;
 import com.android.ifarm.ifarming.widget.CircleImageView;
@@ -33,7 +35,7 @@ public class UserFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
-        bindView(this,view);
+        bindView(this, view);
         return view;
     }
 
@@ -50,7 +52,7 @@ public class UserFragment extends BaseFragment {
 
     @OnClick(R.id.edit)
     void edit() {
-
+        startActivityForResult(new Intent(getActivity(), EditActivity.class), 1);
     }
 
     @OnClick(R.id.quit)
@@ -81,7 +83,7 @@ public class UserFragment extends BaseFragment {
     }
 
     private void loadShar() {
-        uid.setText(String.format("编号 %s",AppConfig.getUserId()));
+        uid.setText(String.format("编号 %s", AppConfig.getUserId()));
         name.setText(AppConfig.getRealName());
         email.setText(AppConfig.getEmail());
         phone.setText(AppConfig.getMobile());
@@ -94,6 +96,14 @@ public class UserFragment extends BaseFragment {
         Bundle args = getArguments();
         if (args == null) {
             args = new Bundle();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+            loadShar();
         }
     }
 }

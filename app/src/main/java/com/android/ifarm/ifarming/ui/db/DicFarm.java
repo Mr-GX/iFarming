@@ -18,17 +18,20 @@ public class DicFarm extends Model {
     public String dicMobile;
     @Column(name = "DicCode")
     public long dicCode;
+    @Column(name = "DicUid")
+    public long dicUid;
 
     public DicFarm() {
         super();
     }
 
-    public DicFarm(String dicAvatar, String dicName, String dicAddress, String dicContact, String dicMobile, long dicCode) {
+    public DicFarm(String dicAvatar, String dicName, String dicAddress, String dicContact, String dicMobile, long dicCode, long dicUid) {
         this.dicAvatar = dicAvatar;
         this.dicName = dicName;
         this.dicAddress = dicAddress;
         this.dicContact = dicContact;
         this.dicMobile = dicMobile;
         this.dicCode = dicCode;
+        this.dicUid = dicUid;
     }
 }

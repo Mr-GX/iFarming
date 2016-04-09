@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="type">
+        <item>牛</item>
+        <item>羊</item>
+        <item>猪</item>
+        <item>鸡</item>
+    </string-array>
+    <string-array name="niu">
+        <item>牦牛</item>
+        <item>黄牛</item>
+        <item>西门塔尔牛</item>
+        <item>夏洛莱牛</item>
+        <item>利木赞牛</item>
+    </string-array>
+    <string-array name="yang">
+        <item>淮山羊</item>
+        <item>海门白羊</item>
+        <item>波尔山羊</item>
+        <item>小尾山羊</item>
+    </string-array>
+    <string-array name="zhu">
+        <item>八眉猪</item>
+        <item>里岔黑猪</item>
+        <item>黄淮海黑猪</item>
+        <item>民猪</item>
+        <item>禛南小耳猪</item>
+    </string-array>
+    <string-array name="ji">
+        <item>黑鸡</item>
+        <item>茶花鸡</item>
+        <item>清远麻鸡</item>
+        <item>三黄鸡</item>
+    </string-array>
+</resources>

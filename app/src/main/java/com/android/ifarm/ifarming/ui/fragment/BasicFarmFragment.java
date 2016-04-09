@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.activeandroid.query.Select;
 import com.android.ifarm.ifarming.R;
+import com.android.ifarm.ifarming.app.AppConfig;
 import com.android.ifarm.ifarming.ui.db.DicFarm;
 import com.android.ifarm.ifarming.ui.event.FarmEvent;
 import com.android.ifarm.ifarming.util.Utils;
@@ -100,7 +101,7 @@ public class BasicFarmFragment extends BaseFragment {
             return;
         }
         List<DicFarm> farms1 = new Select().from(DicFarm.class).execute();
-        DicFarm farm = new DicFarm("", mName.getText().toString(), mPlace.getText().toString(), mPeople.getText().toString(), mMobile.getText().toString(), farms1.size() + 1);
+        DicFarm farm = new DicFarm("", mName.getText().toString(), mPlace.getText().toString(), mPeople.getText().toString(), mMobile.getText().toString(), farms1.size() + 1, AppConfig.getUserId());
         farm.save();
         mName.setText(null);
         mPlace.setText(null);
