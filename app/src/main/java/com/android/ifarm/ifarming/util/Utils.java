@@ -3,6 +3,7 @@ package com.android.ifarm.ifarming.util;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 
 import com.android.ifarm.ifarming.app.iFarmingApp;
@@ -53,5 +54,10 @@ public class Utils {
     public static boolean isInteger(String str) {
         Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");
         return pattern.matcher(str).matches();
+    }
+
+    public static int dp2px(Context context, float dp) {
+        final int px = (int) (0.5f + context.getResources().getDisplayMetrics().density * dp);
+        return px;
     }
 }

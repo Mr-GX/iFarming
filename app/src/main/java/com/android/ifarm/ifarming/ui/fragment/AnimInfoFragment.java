@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.activeandroid.query.Select;
 import com.android.ifarm.ifarming.R;
@@ -34,13 +35,23 @@ public class AnimInfoFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_anim_info, container, false);
         bindView(this, view);
-        listView.setAdapter(adapter);
+        setView();
         return view;
+    }
+
+    private void setView() {
+        View headerView = LayoutInflater.from(getActivity()).inflate(R.layout.header_no_data,
+                listView.getWrappedList(), false);
+        listView.getWrappedList().addHeaderView(headerView, null, false);
+        empty = (TextView) headerView.findViewById(R.id.empty);
+        empty.setText("暂未添加动物信息，快去添加吧");
+        listView.setAdapter(adapter);
     }
 
     long farmId;
     @Bind(R.id.list)
     StickyListHeadersListView listView;
+    TextView empty;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -49,12 +60,18 @@ public class AnimInfoFragment extends BaseFragment {
         List<DicAnim> animsOfYang = new Select().from(DicAnim.class).where("DicCode=? and DicType=?", farmId, "羊").execute();
         List<DicAnim> animsOfZhu = new Select().from(DicAnim.class).where("DicCode=? and DicType=?", farmId, "猪").execute();
         List<DicAnim> animsOfJi = new Select().from(DicAnim.class).where("DicCode=? and DicType=?", farmId, "鸡").execute();
-        List<DicAnim> all=new ArrayList<>();
+        List<DicAnim> all = new ArrayList<>();
         all.addAll(animsOfNiu);
         all.addAll(animsOfYang);
         all.addAll(animsOfZhu);
         all.addAll(animsOfJi);
-        adapter.setData(all);
+        if (all.size() == 0) {
+            empty.setVisibility(View.VISIBLE);
+            adapter.clear();
+        } else {
+            empty.setVisibility(View.GONE);
+            adapter.setData(all);
+        }
     }
 
     AnimAdapter adapter;

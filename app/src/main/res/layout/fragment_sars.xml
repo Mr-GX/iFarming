@@ -52,7 +52,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="5dp"
                         android:spinnerMode="dialog"
-                        android:textColor="@color/brown"/>
+                        android:textColor="@color/brown" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -85,7 +85,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="5dp"
                         android:spinnerMode="dialog"
-                        android:textColor="@color/brown"/>
+                        android:textColor="@color/brown" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -118,7 +118,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="5dp"
                         android:spinnerMode="dialog"
-                        android:textColor="@color/brown"/>
+                        android:textColor="@color/brown" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -219,16 +219,18 @@
                         android:textColor="@android:color/white" />
                 </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/photos"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/corner_"
-                    android:gravity="center_vertical"
-                    android:inputType="number"
-                    android:paddingLeft="5dp"
-                    android:textColor="@color/brown" />
+                    android:layout_height="wrap_content"
+                    android:minHeight="100dp"
+                    android:background="@drawable/corner_">
+
+                    <com.android.ifarm.ifarming.widget.ImageContainer
+                        android:id="@+id/container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp" />
+                </LinearLayout>
             </LinearLayout>
 
             <TextView

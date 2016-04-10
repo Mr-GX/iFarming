@@ -60,6 +60,7 @@ public class LoginActivity extends BaseActivity {
             }).show();
         } else {
             if (users.get(0).dicPwd.equals(mPwd.getText().toString())) {
+                AppConfig.setAvatar(users.get(0).dicCover);
                 AppConfig.setUserId(users.get(0).dicUid);
                 AppConfig.setRealName(users.get(0).dicName);
                 AppConfig.setEmail(users.get(0).dicEmail);

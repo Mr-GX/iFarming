@@ -4,8 +4,10 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
+import java.io.Serializable;
+
 @Table(name = "DicSarss")
-public class DicSars extends Model {
+public class DicSars extends Model implements Serializable {
     @Column(name = "DicFrom")
     public String dicFrom;
     @Column(name = "DicCode")

@@ -9,7 +9,6 @@ import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -105,7 +104,7 @@ public class EditActivity extends BaseActivity {
             }).show();
             return;
         }
-        AppConfig.setAvata(mUri != null ? mUri.toString() : AppConfig.getAvatar());
+        AppConfig.setAvatar(mUri != null ? mUri.toString() : AppConfig.getAvatar());
         AppConfig.setRealName(name.getText().toString());
         AppConfig.setEmail(email.getText().toString());
         AppConfig.setMobile(phone.getText().toString());
@@ -142,25 +141,24 @@ public class EditActivity extends BaseActivity {
         } else if (requestCode == 3000) {
             Uri uri = data.getData();
             if (uri == null) {
-                uri = Uri.fromFile(new
-                        File(getExternalCacheDir(), currentCropPng));
+                uri = currentAvatar;
             }
             mUri = uri;
-            Log.e("TAG", mUri.toString());
             Glide.with(this).load(mUri).error(R.mipmap.logo_main).into(cover);
         } else if (requestCode == 1000) {
             onCrop(Uri.fromFile(new File(getExternalCacheDir(), "camera.jpeg")));
         }
     }
 
-    String currentCropPng = "crop_image_out_user" + AppConfig.getUserId() + ".jpg";
+    Uri currentAvatar;
 
     private void onCrop(Uri uri) {
         Intent cropIntent = new Intent("com.android.camera.action.CROP");
         cropIntent.setDataAndType(uri, "image/*");
         cropIntent.putExtra("crop", "true");
-        cropIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new
-                File(getExternalCacheDir(), currentCropPng)));
+        currentAvatar = Uri.fromFile(new
+                File(getExternalCacheDir(), "crop_image_out_user" + System.currentTimeMillis() + ".jpg"));
+        cropIntent.putExtra(MediaStore.EXTRA_OUTPUT, currentAvatar);
         cropIntent.putExtra("outputX", 400);
         cropIntent.putExtra("outputY", 400);
         cropIntent.putExtra("aspectX", 1);

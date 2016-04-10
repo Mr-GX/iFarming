@@ -64,7 +64,7 @@ public class SarsAdapter extends BaseAdapter {
         }
         DicSars data = mDatas.get(position);
         if (!((Activity) holder.avatar.getContext()).isFinishing()) {
-            Glide.with(holder.avatar.getContext()).load("").error(R.mipmap.logo_main).into(holder.avatar);
+            Glide.with(holder.avatar.getContext()).load(data.dicPic.split(",")[0]).error(R.mipmap.logo_main).into(holder.avatar);
         }
         holder.code.setText(String.format("#%s", data.dicNum));
         holder.pz.setText(data.dicPz);
@@ -74,6 +74,11 @@ public class SarsAdapter extends BaseAdapter {
         String date = simpleDateFormat.format(calendar.getTime());
         holder.time.setText(date);
         return convertView;
+    }
+
+    public void clear() {
+        mDatas.clear();
+        notifyDataSetChanged();
     }
 
 

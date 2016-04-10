@@ -120,26 +120,15 @@
                     android:text="联系人电话"
                     android:textColor="@color/brown" />
 
-                <LinearLayout
+
+                <EditText
+                    android:id="@+id/mobile"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/add" />
-
-                    <EditText
-                        android:id="@+id/mobile"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/corner_"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="5dp"
-                        android:textColor="@color/brown" />
-                </LinearLayout>
+                    android:layout_height="30dp"
+                    android:background="@drawable/corner_"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/brown" />
             </LinearLayout>
 
             <TextView

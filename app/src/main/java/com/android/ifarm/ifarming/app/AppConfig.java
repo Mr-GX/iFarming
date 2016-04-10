@@ -28,10 +28,10 @@ public class AppConfig {
     }
 
     public static String getAvatar() {
-        return preferences.getString("avatar", null);
+        return preferences.getString("avatar", "");
     }
 
-    public static void setAvata(String avatar) {
+    public static void setAvatar(String avatar) {
         preferences.edit().putString("avatar", avatar).apply();
     }
 

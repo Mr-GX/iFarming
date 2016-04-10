@@ -108,6 +108,11 @@ public class AnimAdapter extends BaseAdapter implements StickyListHeadersAdapter
         notifyDataSetChanged();
     }
 
+    public void clear() {
+        all.clear();
+        notifyDataSetChanged();
+    }
+
     class HeaderViewHolder {
         TextView title, seri;
     }

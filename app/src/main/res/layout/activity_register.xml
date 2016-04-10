@@ -106,6 +106,7 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginRight="35dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/corner_bg"
                 android:gravity="center"
                 android:minHeight="40dp"
