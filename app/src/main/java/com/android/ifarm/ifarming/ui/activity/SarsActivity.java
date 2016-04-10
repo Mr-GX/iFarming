@@ -1,14 +1,20 @@
 package com.android.ifarm.ifarming.ui.activity;
 
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
 import com.android.ifarm.ifarming.R;
+import com.android.ifarm.ifarming.ui.adapter.SarsPhotosAdapter;
 import com.android.ifarm.ifarming.ui.db.DicSars;
 import com.android.ifarm.ifarming.widget.CircleImageView;
 import com.bumptech.glide.Glide;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 
 import butterknife.Bind;
@@ -38,6 +44,15 @@ public class SarsActivity extends BaseActivity {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日HH:MM");
         String date = simpleDateFormat.format(calendar.getTime());
         time.setText(date);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        photos.setLayoutManager(linearLayoutManager);
+        photos.setHasFixedSize(true);
+        photos.removeItemDecoration(decoration);
+        photos.addItemDecoration(decoration);
+        SarsPhotosAdapter mAdapter = new SarsPhotosAdapter();
+        mAdapter.setData(Arrays.asList(sars.dicPic.split(",")));
+        photos.setAdapter(mAdapter);
     }
 
     @OnClick(R.id.btn_back)
@@ -55,4 +70,14 @@ public class SarsActivity extends BaseActivity {
     TextView pz;
     @Bind(R.id.time)
     TextView time;
+    @Bind(R.id.recycler_view)
+    RecyclerView photos;
+
+    RecyclerView.ItemDecoration decoration = new RecyclerView.ItemDecoration() {
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            super.getItemOffsets(outRect, view, parent, state);
+            outRect.right = 20;
+        }
+    };
 }
