@@ -117,6 +117,7 @@ public class RegisterActivity extends BaseActivity {
         List<DicUser> users1 = new Select().from(DicUser.class).execute();
         DicUser user = new DicUser(mName.getText().toString(), mEmail.getText().toString(), mMobile.getText().toString(), mPwd.getText().toString(), users1.size() + 1, mUri != null ? mUri.toString() : "");
         user.save();
+        AppConfig.setAvata(mUri != null ? mUri.toString() : "");
         AppConfig.setRealName(mName.getText().toString());
         AppConfig.setEmail(mEmail.getText().toString());
         AppConfig.setMobile(mMobile.getText().toString());
@@ -156,7 +157,7 @@ public class RegisterActivity extends BaseActivity {
             Uri uri = data.getData();
             if (uri == null) {
                 uri = Uri.fromFile(new
-                        File(getExternalCacheDir(), "crop_image_out.jpg"));
+                        File(getExternalCacheDir(), "crop_image_out_user.jpg"));
             }
             mUri = uri;
             Glide.with(this).load(mUri).error(R.mipmap.logo_main).into(mCover);
@@ -171,7 +172,7 @@ public class RegisterActivity extends BaseActivity {
         cropIntent.setDataAndType(uri, "image/*");
         cropIntent.putExtra("crop", "true");
         cropIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new
-                File(getExternalCacheDir(), "crop_image_out.jpg")));
+                File(getExternalCacheDir(), "crop_image_out_user.jpg")));
         cropIntent.putExtra("outputX", 400);
         cropIntent.putExtra("outputY", 400);
         cropIntent.putExtra("aspectX", 1);

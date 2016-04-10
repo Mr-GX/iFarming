@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.activeandroid.query.Select;
 import com.android.ifarm.ifarming.R;
@@ -58,7 +59,7 @@ public class BasicAnimFragment extends BaseFragment {
 
     @OnClick(R.id.save)
     void onSave() {
-        if (farms.size()==0){
+        if (farms.size() == 0) {
             Snackbar.make(mFrom, "暂时还没有添加养殖场信息！", Snackbar.LENGTH_SHORT).setAction("现在去添加", new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -67,7 +68,7 @@ public class BasicAnimFragment extends BaseFragment {
             }).show();
             return;
         }
-        if (TextUtils.isEmpty(mCount.getText().toString())){
+        if (TextUtils.isEmpty(mCount.getText().toString())) {
             Snackbar.make(mCount, "养殖数量不能为空！", Snackbar.LENGTH_SHORT).setAction("我知道了", new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -75,14 +76,17 @@ public class BasicAnimFragment extends BaseFragment {
             }).show();
             return;
         }
-        DicAnim anim=new DicAnim(sFrom,sType,sPz,mCount.getText().toString(), AppConfig.getUserId());
+        DicAnim anim = new DicAnim(sFrom, sCode, sType, sPz, mCount.getText().toString(), AppConfig.getUserId());
         anim.save();
+        mCount.setText("");
+        Toast.makeText(getActivity(), "保存成功！", Toast.LENGTH_SHORT).show();
     }
 
     ArrayAdapter adapterFrom, adapterType, adapterPz;
     String sFrom, sType, sPz;
     List<DicFarm> farms;
     ArrayList<String> mData;
+    long sCode;
 
     @Subscribe
     public void onEvent(FarmEvent event) {
@@ -90,7 +94,7 @@ public class BasicAnimFragment extends BaseFragment {
 //        farms = new Select().from(DicFarm.class).where("DicUid = ?", AppConfig.getUserId()).execute();//根据用户id搜索
         farms = new Select().from(DicFarm.class).execute();//搜索全部
         mData.clear();
-        for (DicFarm farm:farms) {
+        for (DicFarm farm : farms) {
             mData.add(farm.dicName);
         }
         adapterFrom.notifyDataSetChanged();
@@ -102,7 +106,7 @@ public class BasicAnimFragment extends BaseFragment {
 //        farms = new Select().from(DicFarm.class).where("DicUid = ?", AppConfig.getUserId()).execute();//根据用户id搜索
         farms = new Select().from(DicFarm.class).execute();//搜索全部
         mData = new ArrayList<>();
-        for (DicFarm farm:farms) {
+        for (DicFarm farm : farms) {
             mData.add(farm.dicName);
         }
         adapterFrom = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, mData);
@@ -111,6 +115,7 @@ public class BasicAnimFragment extends BaseFragment {
         mFrom.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 sFrom = adapterFrom.getItem(arg2).toString();
+                sCode = farms.get(arg2).dicCode;
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {

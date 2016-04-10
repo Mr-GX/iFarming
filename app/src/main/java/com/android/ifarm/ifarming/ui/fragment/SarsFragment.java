@@ -19,6 +19,7 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.activeandroid.query.Select;
 import com.android.ifarm.ifarming.R;
@@ -59,10 +60,10 @@ public class SarsFragment extends BaseFragment {
     }
 
     ArrayAdapter adapterFrom, adapterType, adapterPz;
-    String sFrom, sType, sPz,sScanResult;
+    String sFrom, sType, sPz, sScanResult;
     List<DicFarm> farms;
     ArrayList<String> mData;
-    long sTime;
+    long sCode, sTime;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -79,6 +80,7 @@ public class SarsFragment extends BaseFragment {
         mFrom.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 sFrom = adapterFrom.getItem(arg2).toString();
+                sCode = farms.get(arg2).dicCode;
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -149,7 +151,7 @@ public class SarsFragment extends BaseFragment {
             }).show();
             return;
         }
-        if (TextUtils.isEmpty(sScanResult)){
+        if (TextUtils.isEmpty(sScanResult)) {
             Snackbar.make(mNum, "请扫描个体编号！", Snackbar.LENGTH_SHORT).setAction("现在去添加", new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -157,7 +159,7 @@ public class SarsFragment extends BaseFragment {
             }).show();
             return;
         }
-        if (sTime==0){
+        if (sTime == 0) {
             Snackbar.make(mTime, "发病时间不能为空！", Snackbar.LENGTH_SHORT).setAction("现在去添加", new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -165,8 +167,11 @@ public class SarsFragment extends BaseFragment {
             }).show();
             return;
         }
-        DicSars sars = new DicSars(sFrom, sType, sPz, "", sTime, "", AppConfig.getUserId());
+        DicSars sars = new DicSars(sFrom, sCode, sType, sPz, sScanResult, sTime, "", AppConfig.getUserId());
         sars.save();
+        mNum.setText("");
+        mTime.setText("");
+        Toast.makeText(getActivity(), "保存成功！", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -194,7 +199,8 @@ public class SarsFragment extends BaseFragment {
         adapterFrom.notifyDataSetChanged();
     }
 
-    @OnClick(R.id.time) void editDate(){
+    @OnClick(R.id.time)
+    void editDate() {
         if (sTime == 0) {
             sTime = System.currentTimeMillis();
         }

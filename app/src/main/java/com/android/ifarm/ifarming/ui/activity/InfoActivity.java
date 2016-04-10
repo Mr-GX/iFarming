@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.android.ifarm.ifarming.R;
 import com.android.ifarm.ifarming.ui.db.DicFarm;
+import com.android.ifarm.ifarming.ui.fragment.AnimInfoFragment;
 import com.android.ifarm.ifarming.ui.fragment.BasicInfoFragment;
+import com.android.ifarm.ifarming.ui.fragment.SarsInfoFragment;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -75,9 +77,9 @@ public class InfoActivity extends BaseActivity {
             if (position == 0) {
                 return BasicInfoFragment.newFragment(farm);
             } else if (position == 1) {
-                return BasicInfoFragment.newFragment(farm);
+                return AnimInfoFragment.newFragment(farm);
             } else {
-                return BasicInfoFragment.newFragment(farm);
+                return SarsInfoFragment.newFragment(farm);
             }
         }
 

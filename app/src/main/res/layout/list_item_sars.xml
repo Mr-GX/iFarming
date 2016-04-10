@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:paddingLeft="18dp">
+
+    <com.android.ifarm.ifarming.widget.CircleImageView
+        android:id="@+id/sars_avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/logo_main"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/sars_code"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="#0001"
+            android:gravity="bottom"
+            android:textColor="@color/brown"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/sars_pz"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="小尾山羊"
+            android:gravity="center_vertical"
+            android:textColor="@color/brown"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/sars_time"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="发病时间：2011年11月11日11：11"
+            android:gravity="top"
+            android:textColor="@color/brown"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

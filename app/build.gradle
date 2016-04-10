@@ -33,5 +33,6 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
     //    compile 'com.jaeger.statusbaruitl:library:1.0.0'
+    compile 'se.emilsjolander:stickylistheaders:2.7.0'
     compile project(':libzxing')
 }

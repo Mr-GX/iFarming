@@ -15,8 +15,8 @@ import com.android.ifarm.ifarming.R;
 import com.android.ifarm.ifarming.app.AppConfig;
 import com.android.ifarm.ifarming.ui.activity.EditActivity;
 import com.android.ifarm.ifarming.ui.activity.LoginActivity;
-import com.android.ifarm.ifarming.ui.adapter.HomeAdapter;
 import com.android.ifarm.ifarming.widget.CircleImageView;
+import com.bumptech.glide.Glide;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -83,6 +83,7 @@ public class UserFragment extends BaseFragment {
     }
 
     private void loadShar() {
+        Glide.with(this).load(AppConfig.getAvatar()).error(R.mipmap.logo_main).into(cover);
         uid.setText(String.format("编号 %s", AppConfig.getUserId()));
         name.setText(AppConfig.getRealName());
         email.setText(AppConfig.getEmail());
@@ -92,11 +93,7 @@ public class UserFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        HomeAdapter adapter = new HomeAdapter();
         Bundle args = getArguments();
-        if (args == null) {
-            args = new Bundle();
-        }
     }
 
     @Override

@@ -8,6 +8,8 @@ import com.activeandroid.annotation.Table;
 public class DicAnim extends Model {
     @Column(name = "DicFrom")
     public String dicFrom;
+    @Column(name = "DicCode")
+    public long dicCode;
     @Column(name = "DicType")
     public String dicType;
     @Column(name = "DicPz")
@@ -21,8 +23,9 @@ public class DicAnim extends Model {
         super();
     }
 
-    public DicAnim(String dicFrom, String dicType, String dicPz, String dicCount, long dicUid) {
+    public DicAnim(String dicFrom, long dicCode, String dicType, String dicPz, String dicCount, long dicUid) {
         this.dicFrom = dicFrom;
+        this.dicCode = dicCode;
         this.dicType = dicType;
         this.dicPz = dicPz;
         this.dicCount = dicCount;

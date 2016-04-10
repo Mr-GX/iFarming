@@ -8,6 +8,8 @@ import com.activeandroid.annotation.Table;
 public class DicSars extends Model {
     @Column(name = "DicFrom")
     public String dicFrom;
+    @Column(name = "DicCode")
+    public long dicCode;
     @Column(name = "DicType")
     public String dicType;
     @Column(name = "DicPz")
@@ -25,8 +27,9 @@ public class DicSars extends Model {
         super();
     }
 
-    public DicSars(String dicFrom, String dicType, String dicPz, String dicNum, long dicTime, String dicPic, long dicUid) {
+    public DicSars(String dicFrom, long dicCode, String dicType, String dicPz, String dicNum, long dicTime, String dicPic, long dicUid) {
         this.dicFrom = dicFrom;
+        this.dicCode = dicCode;
         this.dicType = dicType;
         this.dicPz = dicPz;
         this.dicNum = dicNum;
