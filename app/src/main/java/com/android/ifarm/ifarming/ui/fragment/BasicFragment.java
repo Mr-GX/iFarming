@@ -18,7 +18,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.Bind;
 
-public class BasicFragment extends BaseFragment {
+public class BasicFragment extends BaseFragment implements RadioGroup.OnCheckedChangeListener {
     FragmentAdapter adapter;
 
     public static BasicFragment newFragment() {
@@ -64,6 +64,7 @@ public class BasicFragment extends BaseFragment {
 
             }
         });
+        mRadioGroup.setOnCheckedChangeListener(this);
     }
 
     @Override
@@ -71,6 +72,17 @@ public class BasicFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
         registerEventBus();
         Bundle args = getArguments();
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        int index;
+        if (checkedId == RADIO_IDS[0]) {
+            index = 0;
+        } else {
+            index = 1;
+        }
+        mViewPager.setCurrentItem(index, true);
     }
 
     private class FragmentAdapter extends FragmentPagerAdapter {

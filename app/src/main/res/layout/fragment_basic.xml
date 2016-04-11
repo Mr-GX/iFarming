@@ -15,35 +15,35 @@
 
     <RadioGroup
         android:id="@+id/radio_group_basic"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="29dp"
         android:layout_centerInParent="true"
-        android:layout_gravity="center"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radio_place"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:button="@null"
             android:checked="true"
-            android:gravity="center"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
+            android:gravity="center|left"
+            android:paddingLeft="20dp"
             android:text="养殖场信息采集"
             android:textColor="@drawable/selector_tabbar_text"
             android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/radio_anim"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_gravity="right"
             android:button="@null"
-            android:gravity="center"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:textColor="@drawable/selector_tabbar_text"
+            android:gravity="center|right"
+            android:paddingRight="20dp"
             android:text="动物信息采集"
+            android:textColor="@drawable/selector_tabbar_text"
             android:textSize="12sp" />
     </RadioGroup>
 

@@ -18,7 +18,7 @@ import com.jaeger.library.StatusBarUtil;
 import butterknife.Bind;
 import butterknife.OnClick;
 
-public class InfoActivity extends BaseActivity {
+public class InfoActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
     FragmentAdapter adapter;
     public static final String PARAM = "Param";
     DicFarm farm;
@@ -53,6 +53,7 @@ public class InfoActivity extends BaseActivity {
 
             }
         });
+        mRadioGroup.setOnCheckedChangeListener(this);
     }
 
     @OnClick(R.id.btn_back)
@@ -67,6 +68,19 @@ public class InfoActivity extends BaseActivity {
     @Bind(R.id.radio_group)
     RadioGroup mRadioGroup;
     static final int[] RADIO_IDS = {R.id.radio_basic, R.id.radio_anim, R.id.radio_sars};
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        int index;
+        if (checkedId == RADIO_IDS[0]) {
+            index = 0;
+        } else if (checkedId == RADIO_IDS[1]) {
+            index = 1;
+        } else {
+            index = 2;
+        }
+        mViewPager.setCurrentItem(index, true);
+    }
 
     private class FragmentAdapter extends FragmentPagerAdapter {
 

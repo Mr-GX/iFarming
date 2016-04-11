@@ -70,6 +70,7 @@
                     android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:background="@null"
                     android:gravity="center_vertical"
                     android:textColor="@color/brown" />
 
@@ -92,6 +93,7 @@
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:background="@null"
                     android:gravity="center_vertical"
                     android:textColor="@color/brown" />
 
@@ -114,6 +116,7 @@
                     android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:background="@null"
                     android:gravity="center_vertical"
                     android:textColor="@color/brown" />
 
@@ -124,14 +127,14 @@
                 android:id="@+id/save"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:layout_marginBottom="30dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
-                android:textColor="@android:color/white"
                 android:background="@drawable/corner_logout_bg"
                 android:gravity="center"
-                android:text="保存" />
+                android:text="保存"
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
