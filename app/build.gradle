@@ -32,7 +32,7 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
-    //    compile 'com.jaeger.statusbaruitl:library:1.0.0'
+    compile 'com.jaeger.statusbaruitl:library:1.0.0'
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile project(':libzxing')

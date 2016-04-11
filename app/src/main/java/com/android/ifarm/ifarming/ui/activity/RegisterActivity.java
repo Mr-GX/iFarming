@@ -19,6 +19,7 @@ import com.android.ifarm.ifarming.ui.db.DicUser;
 import com.android.ifarm.ifarming.util.Utils;
 import com.android.ifarm.ifarming.widget.CircleImageView;
 import com.bumptech.glide.Glide;
+import com.jaeger.library.StatusBarUtil;
 
 import java.io.File;
 import java.util.List;
@@ -34,7 +35,7 @@ public class RegisterActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-//        StatusBarUtil.setTranslucent(this);
+        StatusBarUtil.setTranslucent(this);
         bindView(this);
     }
 
@@ -146,7 +147,7 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode != RESULT_OK || data == null) {
+        if (resultCode != RESULT_OK ) {
             return;
         }
 

@@ -13,6 +13,7 @@ import com.android.ifarm.ifarming.ui.db.DicFarm;
 import com.android.ifarm.ifarming.ui.fragment.AnimInfoFragment;
 import com.android.ifarm.ifarming.ui.fragment.BasicInfoFragment;
 import com.android.ifarm.ifarming.ui.fragment.SarsInfoFragment;
+import com.jaeger.library.StatusBarUtil;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -26,6 +27,7 @@ public class InfoActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
+        StatusBarUtil.setTranslucent(this);
         bindView(this);
         setViewPager();
     }

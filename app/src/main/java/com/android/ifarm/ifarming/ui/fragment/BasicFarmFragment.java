@@ -178,7 +178,7 @@ public class BasicFarmFragment extends BaseFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode != getActivity().RESULT_OK || data == null) {
+        if (resultCode != getActivity().RESULT_OK) {
             return;
         }
 
