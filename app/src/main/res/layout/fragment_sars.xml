@@ -47,8 +47,6 @@
                         android:id="@+id/from"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:drawablePadding="10dp"
-                        android:drawableRight="@mipmap/triangle"
                         android:gravity="center_vertical"
                         android:paddingLeft="5dp"
                         android:spinnerMode="dialog"
@@ -80,8 +78,6 @@
                         android:id="@+id/type"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:drawablePadding="10dp"
-                        android:drawableRight="@mipmap/triangle"
                         android:gravity="center_vertical"
                         android:paddingLeft="5dp"
                         android:spinnerMode="dialog"
@@ -113,8 +109,6 @@
                         android:id="@+id/pinzhong"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:drawablePadding="10dp"
-                        android:drawableRight="@mipmap/triangle"
                         android:gravity="center_vertical"
                         android:paddingLeft="5dp"
                         android:spinnerMode="dialog"
@@ -223,6 +217,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="100dp"
+                    android:layout_marginTop="5dp"
                     android:background="@drawable/corner_">
 
                     <com.android.ifarm.ifarming.widget.ImageContainer

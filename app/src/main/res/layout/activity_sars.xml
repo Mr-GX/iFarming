@@ -10,7 +10,7 @@
         <ImageView
             android:id="@+id/btn_back"
             style="@style/NavigationLeftButton"
-            android:src="@mipmap/add" />
+            android:src="@mipmap/back" />
 
         <TextView
             android:id="@+id/btn_title"

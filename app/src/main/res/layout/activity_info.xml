@@ -9,7 +9,7 @@
         <ImageView
             android:id="@+id/btn_back"
             style="@style/NavigationLeftButton"
-            android:src="@mipmap/add" />
+            android:src="@mipmap/back" />
 
         <TextView
             android:id="@+id/btn_title"
@@ -20,7 +20,7 @@
 
     <RadioGroup
         android:id="@+id/radio_group"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="29dp"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
@@ -28,36 +28,35 @@
 
         <RadioButton
             android:id="@+id/radio_basic"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:button="@null"
             android:checked="true"
-            android:gravity="center"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
+            android:gravity="center|left"
+            android:paddingLeft="20dp"
             android:text="基本信息"
             android:textColor="@drawable/selector_tabbar_text"
             android:textSize="12sp" />
 
         <RadioButton
             android:id="@+id/radio_anim"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:button="@null"
             android:gravity="center"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
             android:text="动物信息"
             android:textColor="@drawable/selector_tabbar_text"
             android:textSize="12sp" />
         <RadioButton
             android:id="@+id/radio_sars"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:button="@null"
-            android:gravity="center"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
+            android:gravity="center|right"
+            android:paddingRight="20dp"
             android:text="疫情信息"
             android:textColor="@drawable/selector_tabbar_text"
             android:textSize="12sp" />

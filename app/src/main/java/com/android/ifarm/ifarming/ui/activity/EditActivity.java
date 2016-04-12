@@ -20,6 +20,7 @@ import com.android.ifarm.ifarming.ui.db.DicUser;
 import com.android.ifarm.ifarming.util.Utils;
 import com.android.ifarm.ifarming.widget.CircleImageView;
 import com.bumptech.glide.Glide;
+import com.jaeger.library.StatusBarUtil;
 
 import java.io.File;
 
@@ -34,7 +35,7 @@ public class EditActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_edit);
-//        StatusBarUtil.setTranslucent(this);
+        StatusBarUtil.setTranslucent(this);
         bindView(this);
         setView();
     }
@@ -131,7 +132,7 @@ public class EditActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode != RESULT_OK || data == null) {
+        if (resultCode != RESULT_OK) {
             return;
         }
 

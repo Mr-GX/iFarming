@@ -10,25 +10,25 @@
         <ImageView
             android:id="@+id/btn_search"
             style="@style/NavigationLeftButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="15dp"
             android:scaleType="centerInside"
             android:src="@mipmap/search" />
 
         <EditText
             android:id="@+id/search_content"
-            style="@style/NavigationTitle"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@+id/btn_search"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="30dp"
             android:background="@drawable/corner_search_bg"
             android:gravity="center_vertical"
             android:hint="输入养殖场名称搜索"
-            android:paddingLeft="15dp" />
+            android:paddingLeft="15dp"
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <TextView style="@style/Divider" />
@@ -37,12 +37,13 @@
         android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ListView
             android:id="@+id/list"
             android:layout_width="match_parent"
-            android:listSelector="@android:color/transparent"
+            android:layout_height="match_parent"
             android:divider="@drawable/list_divider"
             android:dividerHeight="1px"
-            android:layout_height="match_parent" />
+            android:listSelector="@android:color/transparent" />
     </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

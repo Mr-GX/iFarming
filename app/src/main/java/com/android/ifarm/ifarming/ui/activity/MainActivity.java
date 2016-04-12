@@ -12,6 +12,7 @@ import com.android.ifarm.ifarming.ui.fragment.BasicFragment;
 import com.android.ifarm.ifarming.ui.fragment.HomeFragment;
 import com.android.ifarm.ifarming.ui.fragment.SarsFragment;
 import com.android.ifarm.ifarming.ui.fragment.UserFragment;
+import com.jaeger.library.StatusBarUtil;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -27,7 +28,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         registerEventBus();
-//        StatusBarUtil.setTranslucent(this);
+        StatusBarUtil.setTranslucent(this);
         bindView(this);
         setCurrentFragmentIndex(0);
         tab.setOnCheckedChangeListener(this);

@@ -12,6 +12,7 @@ import com.android.ifarm.ifarming.ui.adapter.SarsPhotosAdapter;
 import com.android.ifarm.ifarming.ui.db.DicSars;
 import com.android.ifarm.ifarming.widget.CircleImageView;
 import com.bumptech.glide.Glide;
+import com.jaeger.library.StatusBarUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -28,7 +29,7 @@ public class SarsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sars);
-//        StatusBarUtil.setTranslucent(this);
+        StatusBarUtil.setTranslucent(this);
         bindView(this);
         setView();
     }

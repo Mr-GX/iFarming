@@ -25,7 +25,7 @@ public class iFarmingApp extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
-//        new CrashHelper().init();
+        new CrashHelper().init();
         Configuration.Builder configurationBuilder = new Configuration.Builder(getApplicationContext());
         configurationBuilder.addModelClasses(
                 DicUser.class, DicFarm.class, DicAnim.class, DicSars.class
